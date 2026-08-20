@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clinical Research Information Assistant</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+        }
+
+        header {
+            background: #17324d;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        header p {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        select {
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        button {
+            border: none;
+            background: #285f7a;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #17324d;
+        }
+
+        #answer {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f4f7fb;
+            border-left: 4px solid #285f7a;
+            border-radius: 6px;
+            min-height: 80px;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #17324d;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>AI-Powered Clinical Research Information Assistant</h1>
+
+        <p>
+            An educational digital project designed to help users understand
+            basic clinical research concepts.
+        </p>
+    </header>
+
+    <main>
+
+        <div class="card">
+
+            <h2>Explore a Clinical Research Topic</h2>
+
+            <p>
+                Select a topic below and the assistant will provide a simple
+                explanation.
+            </p>
+
+            <label for="topic">Choose a topic:</label>
+
+            <select id="topic">
+                <option value="">-- Select a topic --</option>
+                <option value="gcp">Good Clinical Practice (GCP)</option>
+                <option value="clinical-trial">Clinical Trial</option>
+                <option value="informed-consent">Informed Consent</option>
+                <option value="placebo">Placebo</option>
+                <option value="randomisation">Randomisation</option>
+                <option value="blinding">Blinding</option>
+            </select>
+
+            <button onclick="showAnswer()">Explain Topic</button>
+
+            <div id="answer">
+                Select a topic and click "Explain Topic".
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>About This Project</h2>
+
+            <p>
+                This project demonstrates how digital tools can be used to
+                present clinical research information in an accessible way.
+            </p>
+
+            <p class="note">
+                Educational purposes only. This tool does not provide medical
+                diagnosis, treatment recommendations, or professional medical advice.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Project by Remofilwe Bridgette Lekaba</p>
+    </footer>
+
+    <script>
+
+        function showAnswer() {
+
+            const topic = document.getElementById("topic").value;
+            const answer = document.getElementById("answer");
+
+            const information = {
+
+                gcp:
+                    "<strong>Good Clinical Practice (GCP):</strong> GCP is an international ethical and scientific quality standard for designing, conducting, recording, and reporting clinical trials involving human participants.",
+
+                "clinical-trial":
+                    "<strong>Clinical Trial:</strong> A clinical trial is a research study involving human participants that is designed to evaluate the safety, effectiveness, or other effects of a healthcare intervention.",
+
+                "informed-consent":
+                    "<strong>Informed Consent:</strong> Informed consent is the process through which a participant receives relevant information about a study and voluntarily agrees to participate.",
+
+                placebo:
+                    "<strong>Placebo:</strong> A placebo is an inactive substance or intervention designed to resemble the treatment being studied. It may be used as a comparison in some clinical trials.",
+
+                randomisation:
+                    "<strong>Randomisation:</strong> Randomisation is a process used in some clinical trials to assign participants to study groups by chance, helping reduce certain types of bias.",
+
+                blinding:
+                    "<strong>Blinding:</strong> Blinding is a method used in some clinical trials where one or more groups involved in the study are unaware of certain treatment assignments."
+            };
+
+            if (topic === "") {
+
+                answer.innerHTML =
+                    "Please select a clinical research topic first.";
+
+            } else {
+
+                answer.innerHTML = information[topic];
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
+
