@@ -4,59 +4,150 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f5f7fa;
-    color: #333;
+    line-height: 1.7;
+    background-color: #f4f7fb;
+    color: #263238;
 }
 
-header {
+/* Navigation */
+
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+
+.hero {
     background-color: #17324d;
     color: white;
+    min-height: 600px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 100px 20px;
     text-align: center;
-    padding: 60px 20px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.intro-text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-header p {
-    font-size: 1.1rem;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
+
+.hero h2 {
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Buttons */
+
+.button {
+    display: inline-block;
+    background-color: white;
+    color: #17324d;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #e8eef4;
+}
+
+/* Main Content */
 
 main {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 1100px;
+    margin: 50px auto;
     padding: 0 20px;
 }
 
 section {
     background-color: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
 }
 
-h2 {
+section > h2 {
     color: #17324d;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #d9e2ec;
-    padding-bottom: 8px;
-}
-
-h3 {
-    color: #285f7a;
-    margin-top: 15px;
-    margin-bottom: 8px;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbe4ec;
 }
 
 p {
     margin-bottom: 15px;
 }
+
+h3 {
+    color: #285f7a;
+    margin-bottom: 12px;
+}
+
+/* Cards */
+
+.card {
+    background-color: #f8fafc;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 4px solid #285f7a;
+    border-radius: 8px;
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+/* Lists */
 
 ul {
     margin-left: 20px;
@@ -66,30 +157,104 @@ li {
     margin-bottom: 8px;
 }
 
-a {
-    color: #285f7a;
-    font-weight: bold;
-    text-decoration: none;
+/* Projects */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-a:hover {
-    text-decoration: underline;
+.project-card {
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 4px solid #285f7a;
 }
+
+.project-card h3 {
+    margin-top: 15px;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+}
+
+.status {
+    display: inline-block;
+    background-color: #e5edf3;
+    color: #285f7a;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Skills */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Career Interests */
+
+.interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.interest-list span {
+    background-color: #e8eef4;
+    color: #285f7a;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Contact */
+
+#contact {
+    text-align: center;
+}
+
+/* Footer */
 
 footer {
-    text-align: center;
     background-color: #17324d;
     color: white;
-    padding: 20px;
-    margin-top: 40px;
+    text-align: center;
+    padding: 25px;
 }
 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2rem;
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.1rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
     }
 
     section {
-        padding: 20px;
+        padding: 25px;
     }
 }
+
