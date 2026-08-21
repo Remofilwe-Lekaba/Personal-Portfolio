@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Research Study Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b1f3a;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #0b1f3a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163b68;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #e8eef6;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Clinical Research Study Tracker</h1>
+    <p>A simple digital tool for organising clinical research study information.</p>
+</header>
+
+<main>
+
+    <div class="card">
+        <h2>Add Study</h2>
+
+        <label for="studyName">Study Name</label>
+        <input type="text" id="studyName" placeholder="Enter study name">
+
+        <label for="studyPhase">Study Phase</label>
+        <select id="studyPhase">
+            <option value="">Select phase</option>
+            <option>Phase I</option>
+            <option>Phase II</option>
+            <option>Phase III</option>
+            <option>Phase IV</option>
+        </select>
+
+        <label for="studyStatus">Study Status</label>
+        <select id="studyStatus">
+            <option value="">Select status</option>
+            <option>Planned</option>
+            <option>Recruiting</option>
+            <option>Active</option>
+            <option>Completed</option>
+        </select>
+
+        <label for="researchSite">Research Site</label>
+        <input type="text" id="researchSite" placeholder="Enter research site">
+
+        <label for="keyDate">Key Date</label>
+        <input type="date" id="keyDate">
+
+        <button onclick="addStudy()">Add Study</button>
+    </div>
+
+    <div class="card">
+        <h2>Study Tracker</h2>
+
+        <p class="note">
+            This tool is a demonstration project for educational and portfolio purposes.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Study Name</th>
+                    <th>Phase</th>
+                    <th>Status</th>
+                    <th>Research Site</th>
+                    <th>Key Date</th>
+                </tr>
+            </thead>
+
+            <tbody id="studyTable">
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<script>
+    function addStudy() {
+
+        const studyName = document.getElementById("studyName").value;
+        const studyPhase = document.getElementById("studyPhase").value;
+        const studyStatus = document.getElementById("studyStatus").value;
+        const researchSite = document.getElementById("researchSite").value;
+        const keyDate = document.getElementById("keyDate").value;
+
+        if (!studyName || !studyPhase || !studyStatus || !researchSite || !keyDate) {
+            alert("Please complete all fields.");
+            return;
+        }
+
+        const table = document.getElementById("studyTable");
+
+        const row = table.insertRow();
+
+        row.insertCell(0).textContent = studyName;
+        row.insertCell(1).textContent = studyPhase;
+        row.insertCell(2).textContent = studyStatus;
+        row.insertCell(3).textContent = researchSite;
+        row.insertCell(4).textContent = keyDate;
+
+        document.getElementById("studyName").value = "";
+        document.getElementById("studyPhase").value = "";
+        document.getElementById("studyStatus").value = "";
+        document.getElementById("researchSite").value = "";
+        document.getElementById("keyDate").value = "";
+    }
+</script>
+
+</body>
+</html>
